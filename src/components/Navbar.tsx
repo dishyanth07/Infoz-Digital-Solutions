@@ -34,7 +34,7 @@ export default function Navbar() {
           <div className="w-12 h-12 bg-black rounded-lg flex items-center justify-center text-white shadow-lg group-hover:scale-105 transition-transform overflow-hidden">
             <Logo className="w-10 h-10" />
           </div>
-          <span className="font-display font-bold text-xl tracking-tight text-white hidden sm:block">
+          <span className="font-display font-bold text-lg sm:text-xl tracking-tight text-white">
             {BRAND_NAME}
           </span>
         </Link>
