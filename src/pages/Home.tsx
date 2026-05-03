@@ -6,10 +6,10 @@ import { cn } from '../lib/utils';
 
 export default function Home() {
   const testimonials = [
-    { name: "John Smith", role: "CEO, Tech Solutions", text: "The team at INFOZ didn't just rebuild our site, they completely redefined our sales funnel. Our conversion rate doubled in 2 months." },
-    { name: "Sarah Williams", role: "Director, Green Co", text: "Best ROI we've ever seen on Google Ads. They actually care about the leads we get, not just the clicks." },
-    { name: "Michael Chen", role: "Owner, Modern Real Estate", text: "Our social presence finally feels professional. The engagement we get now is organic and high-quality." },
-    { name: "Emily Davis", role: "Manager, Fashion Hub", text: "SEO results have been incredible. We're now ranking #1 for our main keywords and seeing consistent daily orders." }
+    { name: "Rajesh Kumar", role: "Founder, Kumaran Textiles", text: "The team at INFOZ didn't just rebuild our site, they completely redefined our sales funnel. Our conversion rate doubled in 2 months." },
+    { name: "Anjali Sharma", role: "Marketing Head, Sree Dev Jewellers", text: "Best ROI we've ever seen on Google Ads. They actually care about the leads we get, not just the clicks." },
+    { name: "Vikram Singh", role: "CEO, North Star Realtors", text: "Our social presence finally feels professional. The engagement we get now is organic and high-quality." },
+    { name: "Priya Nair", role: "Director, Malabar Organics", text: "SEO results have been incredible. We're now ranking #1 for our main keywords and seeing consistent daily orders." }
   ];
 
   return (
