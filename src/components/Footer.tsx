@@ -78,7 +78,7 @@ export default function Footer() {
       </div>
       <div className="max-w-7xl mx-auto px-6 mt-20 pt-10 border-t border-white/5 text-center">
         <p className="text-slate-500 text-xs italic font-mono">
-          &copy; {new Date().getFullYear()} {BRAND_NAME}. All rights reserved.
+          &copy; 2024 {BRAND_NAME}. All rights reserved.
         </p>
       </div>
     </footer>
