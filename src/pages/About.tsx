@@ -34,26 +34,33 @@ export default function About() {
               </div>
             </div>
             
-            <div className="relative">
+            <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-tr from-brand-primary/20 to-orange-500/20 blur-3xl opacity-50" />
-              <div className="relative glass rounded-[3rem] p-12 border-white/20 aspect-video flex flex-col justify-center space-y-6">
-                 <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
-                       <CheckCircle2 className="w-6 h-6 text-brand-primary" />
-                    </div>
-                    <p className="text-lg font-bold text-white italic">Lead Generation Experts</p>
-                 </div>
-                 <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
-                       <CheckCircle2 className="w-6 h-6 text-brand-primary" />
-                    </div>
-                    <p className="text-lg font-bold text-white italic">Conversion Rate Optimization</p>
-                 </div>
-                 <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
-                       <CheckCircle2 className="w-6 h-6 text-brand-primary" />
-                    </div>
-                    <p className="text-lg font-bold text-white italic">Data-Driven Paid Ads</p>
+              <div className="relative glass rounded-[3rem] p-4 border-white/20 aspect-video shadow-2xl overflow-hidden">
+                 <img 
+                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2670&auto=format&fit=crop" 
+                    alt="Our Strategy" 
+                    className="w-full h-full object-cover rounded-[2.5rem] opacity-40 group-hover:scale-105 transition-transform duration-700" 
+                 />
+                 <div className="absolute inset-0 flex flex-col justify-center space-y-6 p-12">
+                   <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-brand-primary rounded-full flex items-center justify-center shadow-lg shadow-brand-primary/20">
+                         <CheckCircle2 className="w-6 h-6 text-white" />
+                      </div>
+                      <p className="text-lg font-bold text-white italic">Lead Generation Experts</p>
+                   </div>
+                   <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
+                         <CheckCircle2 className="w-6 h-6 text-brand-primary" />
+                      </div>
+                      <p className="text-lg font-bold text-white italic">Conversion Rate Optimization</p>
+                   </div>
+                   <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
+                         <CheckCircle2 className="w-6 h-6 text-brand-primary" />
+                      </div>
+                      <p className="text-lg font-bold text-white italic">Data-Driven Paid Ads</p>
+                   </div>
                  </div>
               </div>
             </div>
@@ -66,13 +73,25 @@ export default function About() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-8">
             {values.map((v, i) => (
-              <div key={i} className="p-8 glass rounded-3xl border-white/5 space-y-4 hover:border-brand-primary/30 transition-all">
-                <div className="w-12 h-12 bg-brand-primary/10 rounded-xl flex items-center justify-center text-brand-primary">
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                whileHover={{ y: -10, borderColor: 'rgba(255, 107, 0, 0.3)' }}
+                className="p-8 glass rounded-3xl border-white/5 space-y-4 transition-all group"
+              >
+                <motion.div 
+                  whileHover={{ scale: 1.2, rotate: [0, -10, 10, 0] }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="w-12 h-12 bg-brand-primary/10 rounded-xl flex items-center justify-center text-brand-primary group-hover:bg-brand-primary/20 transition-colors"
+                >
                   <v.icon className="w-6 h-6" />
-                </div>
+                </motion.div>
                 <h3 className="text-xl font-display font-bold text-white italic">{v.title}</h3>
                 <p className="text-sm text-slate-400 leading-relaxed font-medium">{v.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -81,27 +100,45 @@ export default function About() {
       {/* Why Infoz */}
       <section className="py-32 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
-           <div className="relative order-2 md:order-1">
-              <div className="glass rounded-[3rem] aspect-square flex flex-col justify-center p-12 space-y-12 border-white/20">
-                 <div className="p-8 border border-white/10 rounded-3xl bg-brand-primary/5">
-                    <h4 className="text-white font-bold text-xl mb-4 italic italic">The Infoz Standard</h4>
-                    <p className="text-slate-400 text-sm leading-relaxed">
-                       We operate on a philosophy of "Growth First". Every design choice, every keyword target, and every ad copy is written with one goal: To convert your audience into loyal customers.
-                    </p>
-                 </div>
-                 <div className="grid grid-cols-2 gap-8 divide-x divide-white/10">
-                    <div className="text-center">
-                       <p className="text-xs text-slate-500 font-bold uppercase tracking-widest mb-2 font-mono">Performance</p>
-                       <div className="w-full h-2 bg-white/5 rounded-full overflow-hidden">
-                          <div className="w-full h-full bg-brand-primary" />
-                       </div>
-                    </div>
-                    <div className="text-center pl-8">
-                       <p className="text-xs text-slate-500 font-bold uppercase tracking-widest mb-2 font-mono">Integrity</p>
-                       <div className="w-full h-2 bg-white/5 rounded-full overflow-hidden">
-                          <div className="w-full h-full bg-orange-500" />
-                       </div>
-                    </div>
+           <div className="relative order-2 md:order-1 group">
+              <div className="absolute inset-0 bg-brand-primary/10 blur-3xl rounded-full scale-150" />
+              <div className="glass rounded-[3rem] aspect-square flex flex-col justify-center p-4 border-white/20 overflow-hidden shadow-2xl">
+                 <img 
+                    src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2670&auto=format&fit=crop" 
+                    alt="Our Team" 
+                    className="w-full h-full object-cover rounded-[2.5rem] opacity-30 group-hover:scale-105 transition-transform duration-1000" 
+                 />
+                 <div className="absolute inset-0 flex flex-col justify-center p-12 space-y-12">
+                   <div className="p-8 border border-white/10 rounded-3xl glass backdrop-blur-xl bg-brand-primary/5">
+                      <h4 className="text-white font-bold text-xl mb-4 italic">The Infoz Standard</h4>
+                      <p className="text-slate-400 text-sm leading-relaxed font-medium">
+                         We operate on a philosophy of "Growth First". Every design choice, every keyword target, and every ad copy is written with one goal: To convert your audience into loyal customers.
+                      </p>
+                   </div>
+                   <div className="grid grid-cols-2 gap-8 divide-x divide-white/10">
+                      <div className="text-center">
+                         <p className="text-xs text-slate-500 font-bold uppercase tracking-widest mb-2 font-mono">Performance</p>
+                         <div className="w-full h-2 bg-white/5 rounded-full overflow-hidden">
+                            <motion.div 
+                              initial={{ width: 0 }}
+                              whileInView={{ width: "100%" }}
+                              viewport={{ once: true }}
+                              className="h-full bg-brand-primary" 
+                            />
+                         </div>
+                      </div>
+                      <div className="text-center pl-8">
+                         <p className="text-xs text-slate-500 font-bold uppercase tracking-widest mb-2 font-mono">Integrity</p>
+                         <div className="w-full h-2 bg-white/5 rounded-full overflow-hidden">
+                            <motion.div 
+                               initial={{ width: 0 }}
+                               whileInView={{ width: "100%" }}
+                               viewport={{ once: true }}
+                               className="h-full bg-orange-500" 
+                            />
+                         </div>
+                      </div>
+                   </div>
                  </div>
               </div>
            </div>
@@ -113,27 +150,37 @@ export default function About() {
              </div>
              
              <ul className="space-y-6 italic font-medium text-slate-300">
-               <li className="flex items-center gap-4">
-                 <CheckCircle2 className="w-6 h-6 text-brand-primary" />
-                 Custom strategy for every single client. No templates.
-               </li>
-               <li className="flex items-center gap-4">
-                 <CheckCircle2 className="w-6 h-6 text-brand-primary" />
-                 Direct access to your account managers (no middlemen).
-               </li>
-               <li className="flex items-center gap-4">
-                 <CheckCircle2 className="w-6 h-6 text-brand-primary" />
-                 Predictability in lead volume and growth forecasting.
-               </li>
-               <li className="flex items-center gap-4">
-                 <CheckCircle2 className="w-6 h-6 text-brand-primary" />
-                 Premium UI/UX that sets you apart from industry noise.
-               </li>
+               {[
+                 "Custom strategy for every single client. No templates.",
+                 "Direct access to your account managers (no middlemen).",
+                 "Predictability in lead volume and growth forecasting.",
+                 "Premium UI/UX that sets you apart from industry noise."
+               ].map((text, i) => (
+                 <motion.li 
+                    key={i}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 + (i * 0.1) }}
+                    className="flex items-center gap-4 group"
+                 >
+                   <div className="w-8 h-8 rounded-full bg-brand-primary/10 flex items-center justify-center group-hover:bg-brand-primary/20 transition-colors">
+                     <CheckCircle2 className="w-5 h-5 text-brand-primary" />
+                   </div>
+                   {text}
+                 </motion.li>
+               ))}
              </ul>
 
-             <a href="/contact" className="inline-flex items-center gap-3 bg-brand-primary text-white px-10 py-5 rounded-full font-bold transition-all hover:scale-105 shadow-xl shadow-brand-primary/20">
-               Join the Growth Circle <ArrowRight className="w-5 h-5" />
-             </a>
+              <motion.div 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-block"
+              >
+                <a href="/contact" className="inline-flex items-center gap-3 bg-brand-primary text-white px-10 py-5 rounded-full font-bold transition-all shadow-xl shadow-brand-primary/20 group">
+                  Join the Growth Circle <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </motion.div>
            </div>
         </div>
       </section>

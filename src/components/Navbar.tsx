@@ -43,34 +43,45 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-8">
           <div className="flex items-center gap-6">
             {navLinks.map((link) => (
-              <Link
+              <motion.div
                 key={link.path}
-                to={link.path}
-                className={cn(
-                  "text-sm font-medium transition-colors hover:text-white",
-                  location.pathname === link.path ? "text-white" : "text-slate-400"
-                )}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
               >
-                {link.name}
-              </Link>
+                <Link
+                  to={link.path}
+                  className={cn(
+                    "text-sm font-medium transition-colors hover:text-white pb-1",
+                    location.pathname === link.path ? "text-white border-b border-brand-primary" : "text-slate-400"
+                  )}
+                >
+                  {link.name}
+                </Link>
+              </motion.div>
             ))}
           </div>
-          <Link
-            to="/contact"
-            className="bg-brand-primary hover:bg-brand-secondary text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all transform hover:scale-105 active:scale-95 flex items-center gap-2 shadow-lg shadow-brand-primary/20"
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            Get Leads Now
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+            <Link
+              to="/contact"
+              className="bg-brand-primary hover:bg-brand-secondary text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all flex items-center gap-2 shadow-lg shadow-brand-primary/20"
+            >
+              Get Leads Now
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </motion.div>
         </div>
 
         {/* Mobile Toggle */}
-        <button 
+        <motion.button 
+          whileTap={{ scale: 0.9 }}
           className="md:hidden text-white"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        </motion.button>
       </div>
 
       {/* Mobile Menu */}
@@ -84,26 +95,35 @@ export default function Navbar() {
           >
             <div className="px-6 py-8 flex flex-col gap-6">
               {navLinks.map((link) => (
-                <Link
+                <motion.div
                   key={link.path}
-                  to={link.path}
-                  onClick={() => setIsOpen(false)}
-                  className={cn(
-                    "text-lg font-medium",
-                    location.pathname === link.path ? "text-white" : "text-slate-400"
-                  )}
+                  whileTap={{ x: 10 }}
                 >
-                  {link.name}
-                </Link>
+                  <Link
+                    to={link.path}
+                    onClick={() => setIsOpen(false)}
+                    className={cn(
+                      "text-lg font-medium block",
+                      location.pathname === link.path ? "text-white" : "text-slate-400"
+                    )}
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
               ))}
-              <Link
-                to="/contact"
-                onClick={() => setIsOpen(false)}
-                className="bg-brand-primary text-white px-6 py-4 rounded-xl font-bold flex items-center justify-center gap-2"
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                Get Leads Now
-                <ArrowRight className="w-5 h-5" />
-              </Link>
+                <Link
+                  to="/contact"
+                  onClick={() => setIsOpen(false)}
+                  className="bg-brand-primary text-white px-6 py-4 rounded-xl font-bold flex items-center justify-center gap-2 shadow-xl shadow-brand-primary/30"
+                >
+                  Get Leads Now
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         )}

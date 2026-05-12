@@ -2,16 +2,18 @@ import { Laptop, Megaphone, Search, Share2, Users } from 'lucide-react';
 
 export const BRAND_NAME = "INFOZ DIGITAL SOLUTIONS";
 export const CONTACT_EMAIL = "infozdigitalsolutions@gmail.com";
-export const CONTACT_PHONE = "909330688";
-export const WHATSAPP_NUMBER = "909330688";
+export const CONTACT_PHONE = "9092330688";
+export const WHATSAPP_NUMBER = "9092330688";
 export const GOOGLE_FORM_URL = "https://forms.gle/1uUG6h8Jp6LuK5hN8";
 
 export interface Service {
   id: string;
   title: string;
+  category: string;
   description: string;
   longDescription: string;
   slug: string;
+  imageUrl: string;
   icon: any;
   problem: string;
   solution: string;
@@ -24,7 +26,9 @@ export const SERVICES: Service[] = [
   {
     id: "web-dev",
     title: "Web Development",
+    category: "Development",
     slug: "web-development",
+    imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
     icon: Laptop,
     description: "High-performance, premium websites tailored for conversion.",
     longDescription: "We build more than just websites; we build digital growth engines. Our websites are designed to capture leads and represent your brand with premium quality.",
@@ -54,7 +58,9 @@ export const SERVICES: Service[] = [
   {
     id: "google-ads",
     title: "Google Ads",
+    category: "Ads",
     slug: "google-ads",
+    imageUrl: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2670&auto=format&fit=crop",
     icon: Megaphone,
     description: "High-ROI PPC campaigns that get your business in front of buyers.",
     longDescription: "Stop wasting money on clicks that don't convert. Our Google Ads strategy focuses on high-intent keywords that drive immediate leads.",
@@ -84,7 +90,9 @@ export const SERVICES: Service[] = [
   {
     id: "smm",
     title: "Social Media Marketing",
+    category: "Social Media",
     slug: "social-media-marketing",
+    imageUrl: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=2574&auto=format&fit=crop",
     icon: Share2,
     description: "Viral-ready campaigns that build massive brand awareness.",
     longDescription: "Scale your reach with powerful social media strategies that engage your audience and drive viral growth.",
@@ -114,7 +122,9 @@ export const SERVICES: Service[] = [
   {
     id: "sm-mgmt",
     title: "Social Media Management",
+    category: "Social Media",
     slug: "social-media-management",
+    imageUrl: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2670&auto=format&fit=crop",
     icon: Users,
     description: "Daily management of your brand's voice and growth across platforms.",
     longDescription: "Let us handle the daily grind of posting, engaging, and growing your social presence while you focus on your business.",
@@ -144,7 +154,9 @@ export const SERVICES: Service[] = [
   {
     id: "seo",
     title: "SEO",
+    category: "SEO",
     slug: "seo",
+    imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
     icon: Search,
     description: "Dominate search results and get organic traffic that keeps growing.",
     longDescription: "Build long-term digital authority with SEO that puts you at the top of Google for the long haul.",

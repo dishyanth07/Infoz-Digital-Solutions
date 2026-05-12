@@ -6,17 +6,24 @@ import { cn } from '../lib/utils';
 
 export default function Home() {
   const testimonials = [
-    { name: "Rajesh Kumar", role: "Founder, Kumaran Textiles", text: "The team at INFOZ didn't just rebuild our site, they completely redefined our sales funnel. Our conversion rate doubled in 2 months." },
-    { name: "Anjali Sharma", role: "Marketing Head, Sree Dev Jewellers", text: "Best ROI we've ever seen on Google Ads. They actually care about the leads we get, not just the clicks." },
-    { name: "Vikram Singh", role: "CEO, North Star Realtors", text: "Our social presence finally feels professional. The engagement we get now is organic and high-quality." },
-    { name: "Priya Nair", role: "Director, Malabar Organics", text: "SEO results have been incredible. We're now ranking #1 for our main keywords and seeing consistent daily orders." }
+    { name: "Rajesh Kumar", role: "Founder, Kumaran Textiles", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2574&auto=format&fit=crop", text: "The team at INFOZ didn't just rebuild our site, they completely redefined our sales funnel. Our conversion rate doubled in 2 months." },
+    { name: "Anjali Sharma", role: "Marketing Head, Sree Dev Jewellers", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2574&auto=format&fit=crop", text: "Best ROI we've ever seen on Google Ads. They actually care about the leads we get, not just the clicks." },
+    { name: "Vikram Singh", role: "CEO, North Star Realtors", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2574&auto=format&fit=crop", text: "Our social presence finally feels professional. The engagement we get now is organic and high-quality." },
+    { name: "Priya Nair", role: "Director, Malabar Organics", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2574&auto=format&fit=crop", text: "SEO results have been incredible. We're now ranking #1 for our main keywords and seeing consistent daily orders." }
   ];
 
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-mesh opacity-40" />
+      <section className="relative min-h-screen flex items-center px-6 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2532&auto=format&fit=crop" 
+            alt="Digital Growth and Innovation" 
+            className="w-full h-full object-cover opacity-20 scale-105 animate-slow-zoom"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/50 via-brand-dark to-brand-dark" />
+        </div>
         <div className="max-w-7xl mx-auto w-full relative z-10 py-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -37,19 +44,23 @@ export default function Home() {
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 pt-4">
-              <Link 
-                to="/contact" 
-                className="group bg-brand-primary hover:bg-brand-secondary text-white px-10 py-5 rounded-full font-bold text-lg transition-all hover:scale-105 shadow-2xl shadow-brand-primary/40 flex items-center gap-3"
-              >
-                 Get Leads Now
-                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link 
-                to="/services" 
-                className="glass hover:bg-white/10 text-white px-10 py-5 rounded-full font-bold text-lg transition-all flex items-center gap-3 border-white/10 shadow-xl"
-              >
-                 Our Services
-              </Link>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link 
+                  to="/contact" 
+                  className="group bg-brand-primary hover:bg-brand-secondary text-white px-10 py-5 rounded-full font-bold text-lg transition-all shadow-2xl shadow-brand-primary/40 flex items-center gap-3"
+                >
+                   Get Leads Now
+                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link 
+                  to="/services" 
+                  className="glass hover:bg-white/10 text-white px-10 py-5 rounded-full font-bold text-lg transition-all flex items-center gap-3 border-white/10 shadow-xl"
+                >
+                   Our Services
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         </div>
@@ -67,9 +78,11 @@ export default function Home() {
               <h4 className="text-orange-500 font-bold uppercase tracking-[0.3em] font-mono text-sm">Strategic Solutions</h4>
               <h2 className="text-4xl md:text-6xl font-display font-bold leading-tight tracking-tighter">Everything You Need to <span className="text-gradient italic">Dominate Your Market</span></h2>
             </div>
-            <Link to="/services" className="text-brand-primary font-bold flex items-center gap-2 hover:gap-4 transition-all group border-b-2 border-brand-primary/20 pb-2">
-              View All Services <ArrowRight className="w-5 h-5" />
-            </Link>
+            <motion.div whileHover={{ x: 5 }}>
+              <Link to="/services" className="text-brand-primary font-bold flex items-center gap-2 hover:gap-4 transition-all group border-b-2 border-brand-primary/20 pb-2">
+                View All Services <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </motion.div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -81,16 +94,19 @@ export default function Home() {
                   whileHover={{ y: -10 }}
                   className="group relative h-full"
                 >
-                  <Link to={`/${service.slug}`} className="block h-full p-10 glass rounded-[2.5rem] space-y-8 border-white/5 hover:border-brand-primary/30 transition-all relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-brand-primary/5 rounded-bl-[100px] group-hover:bg-brand-primary/10 transition-colors" />
-                    <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center text-brand-primary group-hover:scale-110 transition-transform shadow-lg shadow-brand-primary/5">
+                  <Link to={`/${service.slug}`} className="block h-full p-10 glass rounded-[2.5rem] space-y-8 border-white/5 hover:border-brand-primary/30 transition-all relative overflow-hidden group/card">
+                    <div className="absolute inset-0 z-0 opacity-0 group-hover/card:opacity-10 transition-opacity duration-500">
+                      <img src={service.imageUrl} alt={service.title} className="w-full h-full object-cover" />
+                    </div>
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-brand-primary/5 rounded-bl-[100px] group-hover:bg-brand-primary/10 transition-colors z-10" />
+                    <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center text-brand-primary group-hover:scale-110 transition-transform shadow-lg shadow-brand-primary/5 relative z-10">
                       <Icon className="w-8 h-8" />
                     </div>
-                    <div className="space-y-4">
+                    <div className="space-y-4 relative z-10">
                       <h3 className="text-2xl font-display font-bold text-white group-hover:text-brand-primary transition-colors">{service.title}</h3>
                       <p className="text-slate-400 leading-relaxed font-medium">{service.description}</p>
                     </div>
-                    <div className="flex items-center gap-2 text-sm font-bold text-brand-primary uppercase tracking-widest pt-4">
+                    <div className="flex items-center gap-2 text-sm font-bold text-brand-primary uppercase tracking-widest pt-4 relative z-10">
                       Learn More <ArrowRight className="w-4 h-4 translate-x-0 group-hover:translate-x-2 transition-transform" />
                     </div>
                   </Link>
@@ -130,36 +146,43 @@ export default function Home() {
              </div>
            </div>
 
-           <div className="relative">
+           <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-tr from-brand-primary/20 to-orange-500/20 blur-[100px] opacity-50" />
-              <div className="relative glass rounded-[3rem] p-12 border-white/20 aspect-square flex flex-col justify-center space-y-12">
-                 <div className="text-center space-y-2">
+              <div className="relative glass rounded-[3rem] p-4 border-white/20 aspect-square overflow-hidden shadow-2xl">
+                 <img 
+                    src="https://images.unsplash.com/photo-1551288049-bbbda536ad31?q=80&w=2670&auto=format&fit=crop" 
+                    alt="Analytics Dashboard" 
+                    className="w-full h-full object-cover rounded-[2.5rem] opacity-40 group-hover:scale-110 transition-transform duration-1000"
+                 />
+                 <div className="absolute inset-0 flex flex-col justify-center space-y-12 p-12">
+                   <div className="text-center space-y-2">
                     <div className="text-7xl font-display font-bold text-white italic tracking-tighter">4.8<span className="text-brand-primary text-4xl">/5</span></div>
                     <div className="flex justify-center gap-1 text-orange-500">
                       {[1,2,3,4,5].map(i => <Star key={i} className="w-6 h-6 fill-current" />)}
                     </div>
                     <p className="text-slate-400 font-bold uppercase tracking-widest text-sm pt-2">Average Client Rating</p>
-                 </div>
-                 
-                 <div className="grid grid-cols-2 gap-8 divide-x divide-white/10">
-                    <div className="text-center space-y-1">
-                       <p className="text-4xl font-display font-bold text-brand-primary italic">100+</p>
-                       <p className="text-xs text-slate-500 font-bold uppercase tracking-widest">Active Brands</p>
-                    </div>
-                    <div className="text-center space-y-1">
-                       <p className="text-4xl font-display font-bold text-orange-500 italic">5M+</p>
-                       <p className="text-xs text-slate-500 font-bold uppercase tracking-widest">Leads Generated</p>
-                    </div>
-                 </div>
+                   </div>
+                  
+                  <div className="grid grid-cols-2 gap-8 divide-x divide-white/10">
+                     <div className="text-center space-y-1">
+                        <p className="text-4xl font-display font-bold text-brand-primary italic">100+</p>
+                        <p className="text-xs text-slate-500 font-bold uppercase tracking-widest">Active Brands</p>
+                     </div>
+                     <div className="text-center space-y-1">
+                        <p className="text-4xl font-display font-bold text-orange-500 italic">5M+</p>
+                        <p className="text-xs text-slate-500 font-bold uppercase tracking-widest">Leads Generated</p>
+                     </div>
+                  </div>
 
-                 <div className="bg-brand-primary/5 rounded-3xl p-6 border border-brand-primary/10 relative overflow-hidden">
-                    <div className="absolute top-0 right-0 p-4 opacity-10">
-                       <TrendingUp className="w-20 h-20" />
-                    </div>
-                    <p className="text-sm italic text-slate-300 leading-relaxed relative z-10">
-                      "Since joining INFOZ, our digital presence is on another level. They truly understand what it takes to grow a brand in 2024."
-                    </p>
-                    <p className="text-xs font-bold text-white mt-4 relative z-10 uppercase tracking-widest">— Digital Head, Global Retail</p>
+                  <div className="bg-brand-primary/5 rounded-3xl p-6 border border-brand-primary/10 relative overflow-hidden">
+                     <div className="absolute top-0 right-0 p-4 opacity-10">
+                        <TrendingUp className="w-20 h-20" />
+                     </div>
+                     <p className="text-sm italic text-slate-300 leading-relaxed relative z-10">
+                       "Since joining INFOZ, our digital presence is on another level. They truly understand what it takes to grow a brand in 2024."
+                     </p>
+                     <p className="text-xs font-bold text-white mt-4 relative z-10 uppercase tracking-widest">— Digital Head, Global Retail</p>
+                  </div>
                  </div>
               </div>
            </div>
@@ -189,12 +212,17 @@ export default function Home() {
                 </div>
                 <p className="text-xl text-slate-300 leading-relaxed italic font-medium">"{t.text}"</p>
                 <div className="pt-4 border-t border-white/5 flex items-center justify-between">
-                   <div>
-                      <p className="font-bold text-white">{t.name}</p>
-                      <p className="text-xs text-slate-500 uppercase tracking-widest font-mono mt-1">{t.role}</p>
+                   <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-brand-primary/50 flex-shrink-0 shadow-xl relative z-10">
+                        <img src={t.image} alt={t.name} className="w-full h-full object-cover" />
+                      </div>
+                      <div className="relative z-10">
+                        <p className="font-bold text-white">{t.name}</p>
+                        <p className="text-xs text-slate-500 uppercase tracking-widest font-mono mt-1">{t.role}</p>
+                      </div>
                    </div>
-                   <div className="w-12 h-12 rounded-full glass border-white/10 flex items-center justify-center">
-                      <Star className="w-5 h-5 text-orange-500" />
+                   <div className="w-10 h-10 rounded-full glass border-white/10 flex items-center justify-center relative z-10">
+                      <Star className="w-4 h-4 text-orange-500" />
                    </div>
                 </div>
               </motion.div>
@@ -213,11 +241,15 @@ export default function Home() {
                 Start your journey towards market dominance today. Book your free digital strategy audit.
               </p>
            </div>
-           <div className="relative z-10 flex flex-wrap justify-center gap-6">
-              <Link to="/contact" className="bg-white text-brand-dark px-12 py-6 rounded-full font-bold text-xl hover:scale-105 transition-all shadow-2xl shadow-white/5 items-center flex gap-3">
-                 Claim Your Free Strategy Audit <ArrowRight className="w-6 h-6" />
+           <motion.div 
+             whileHover={{ scale: 1.02 }}
+             whileTap={{ scale: 0.98 }}
+             className="relative z-10 flex flex-wrap justify-center gap-6"
+           >
+              <Link to="/contact" className="bg-white text-brand-dark px-12 py-6 rounded-full font-bold text-xl transition-all shadow-2xl shadow-white/5 items-center flex gap-3 group">
+                 Claim Your Free Strategy Audit <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
               </Link>
-           </div>
+           </motion.div>
         </div>
       </section>
     </div>

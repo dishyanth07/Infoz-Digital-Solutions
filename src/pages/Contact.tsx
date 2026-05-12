@@ -23,7 +23,10 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-start">
           <div className="space-y-12">
             <div className="grid sm:grid-cols-2 gap-6">
-               <div className="p-8 glass rounded-3xl border-white/5 space-y-4 hover:border-brand-primary/20 transition-all">
+               <motion.div 
+                 whileHover={{ y: -5, borderColor: 'rgba(255, 107, 0, 0.3)' }}
+                 className="p-8 glass rounded-3xl border-white/5 space-y-4 transition-all"
+               >
                   <div className="w-12 h-12 bg-brand-primary/10 rounded-xl flex items-center justify-center text-brand-primary">
                     <Mail className="w-6 h-6" />
                   </div>
@@ -31,8 +34,11 @@ export default function Contact() {
                     <h4 className="font-display font-bold text-white mb-1 italic">Email Us</h4>
                     <p className="text-slate-400 text-sm break-all">{CONTACT_EMAIL}</p>
                   </div>
-               </div>
-               <div className="p-8 glass rounded-3xl border-white/5 space-y-4 hover:border-brand-primary/20 transition-all">
+               </motion.div>
+               <motion.div 
+                 whileHover={{ y: -5, borderColor: 'rgba(255, 107, 0, 0.3)' }}
+                 className="p-8 glass rounded-3xl border-white/5 space-y-4 transition-all"
+               >
                   <div className="w-12 h-12 bg-brand-primary/10 rounded-xl flex items-center justify-center text-brand-primary">
                     <Phone className="w-6 h-6" />
                   </div>
@@ -40,12 +46,14 @@ export default function Contact() {
                     <h4 className="font-display font-bold text-white mb-1 italic">Call Us</h4>
                     <p className="text-slate-400 text-sm">{CONTACT_PHONE}</p>
                   </div>
-               </div>
-               <a 
+               </motion.div>
+               <motion.a 
                  href={whatsappUrl} 
                  target="_blank" 
                  rel="noopener"
-                 className="p-8 glass rounded-3xl border-[#25D366]/20 bg-[#25D366]/5 space-y-4 hover:bg-[#25D366]/10 transition-all sm:col-span-2 group"
+                 whileHover={{ scale: 1.02, backgroundColor: 'rgba(37, 211, 102, 0.15)' }}
+                 whileTap={{ scale: 0.98 }}
+                 className="p-8 glass rounded-3xl border-[#25D366]/20 bg-[#25D366]/5 space-y-4 transition-all sm:col-span-2 group block"
                >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
@@ -59,7 +67,7 @@ export default function Contact() {
                     </div>
                     <ArrowRight className="w-6 h-6 text-[#25D366] group-hover:translate-x-2 transition-transform" />
                   </div>
-               </a>
+               </motion.a>
             </div>
 
             <div className="space-y-8">
